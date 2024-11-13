@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ホームページ</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">ようこそ、{{ user.username }}さん！</h1>
+        <p class="lead">このアプリでは、さまざまな商品を検索して管理できます。</p>
+
+        <div class="mt-4">
+            <h2>ナビゲーション</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="{% url 'search_view' %}">商品一覧</a></li>
+                <li class="list-group-item"><a href="{% url 'product_create' %}">商品を追加</a></li>
+                <li class="list-group-item"><a href="{% url 'search_view' %}">商品を検索</a></li>
+                <li class="list-group-item">
+                    <form action="{% url 'logout' %}" method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">サインアウト</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

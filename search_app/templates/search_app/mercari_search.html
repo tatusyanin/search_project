@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercari Search</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- BootstrapのCSSを使用している場合は、以下を追加 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mercariの検索結果</h1>
+        <form method="GET" action="{% url 'mercari_search' %}">
+            <input type="text" name="query" placeholder="検索キーワード" required>
+            <button type="submit" class="btn btn-primary">検索</button>
+        </form>
+
+        {% if results %}
+            <h2>検索結果</h2>
+            <ul class="list-group">
+                {% for item in results %}
+                    <li class="list-group-item">
+                        <h5>{{ item.name }}</h5>
+                        <p>価格: ¥{{ item.price }}</p>
+                        <a href="{{ item.url }}" target="_blank">詳細を見る</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>検索結果はありません。</p>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

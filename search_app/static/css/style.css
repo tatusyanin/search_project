@@ -1,0 +1,29 @@
+.body {
+    background-color: aqua;
+}
+h1 {
+    text-align: center;
+}
+h2 { 
+    color: rgb(132, 0, 255);
+    text-align: center;
+}
+.product {
+    text-align: center;
+}
+.form {
+    text-align: center;
+}
+.body {
+    background-color: aquamarine;
+}
+/* static/css/style.css に追加 */
+.card {
+    border: 1px solid #dee2e6; /* ボーダーの色を調整 */
+    border-radius: 0.25rem; /* 角の丸み */
+    transition: transform 0.2s; /* ホバー時のアニメーション */
+}
+
+.card:hover {
+    transform: scale(1.05); /* ホバー時に拡大 */
+}
