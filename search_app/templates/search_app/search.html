@@ -8,10 +8,12 @@
     <title>Search</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
    <div class="container">
-    <h1>検索アプリ</h1>
+    <h1 id="title">検索アプリ</h1>
     <div class="text-center mb-4">
         <a href="{% url 'product_create' %}" class="btn btn-success">追加</a>
         <a href="{% url 'favorite' %}">お気に入り商品を見る</a>
@@ -96,5 +98,48 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // 完全ランダムな背景色を生成する関数
+  function getRandomColor() {
+            // 赤、緑、青の各色成分を0〜255の間でランダムに生成
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // 明るさを計算する関数 (背景色が明るいか暗いかを判断)
+        function getLuminance(r, g, b) {
+            // 輝度の計算式 (Rec. 709)
+            return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+        }
+
+        // テキスト色を決める関数
+        function getTextColor(r, g, b) {
+            const luminance = getLuminance(r, g, b);
+            // 輝度が高い場合、暗いテキスト色を使用
+            return luminance > 128 ? 'black' : 'white';
+        }
+
+        // ページがロードされたときに背景色とテキスト色を変更
+        window.onload = function() {
+            // ランダムな背景色を取得
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            // 背景色を設定
+            const backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            document.body.style.backgroundColor = backgroundColor;
+
+            // テキスト色を決定
+            const textColor = getTextColor(r, g, b);
+
+            // <h1> の文字色を設定
+            document.getElementById('title').style.color = textColor;
+        };
+</script>
 </body>
 </html>
