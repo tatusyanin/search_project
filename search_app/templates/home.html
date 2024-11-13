@@ -16,9 +16,9 @@
         <div class="mt-4">
             <h2>ナビゲーション</h2>
             <ul class="list-group">
-                <li class="list-group-item"><a href="{% url 'search_view' %}">商品一覧</a></li>
+                <li class="list-group-item"><a href="{% url 'search' %}">商品一覧</a></li>
                 <li class="list-group-item"><a href="{% url 'product_create' %}">商品を追加</a></li>
-                <li class="list-group-item"><a href="{% url 'search_view' %}">商品を検索</a></li>
+                <li class="list-group-item"><a href="{% url 'search' %}">商品を検索</a></li>
                 <li class="list-group-item">
                     <form action="{% url 'logout' %}" method="POST" style="display:inline;">
                         {% csrf_token %}
