@@ -1,4 +1,6 @@
-#!/Users/jo-jaku/Desktop/2年次/python演習/serch_project/search_project/myenv/bin/python3.12
+#!/bin/sh
+'''exec' "/Users/jo-jaku/Library/Mobile Documents/com~apple~CloudDocs/Desktop/2年次/python演習/search_project/search_project/myenv/bin/python" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys
