@@ -65,8 +65,12 @@ WSGI_APPLICATION = 'search_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME'),  # 環境変数から取得
+        'USER': os.environ.get('DB_USER'),  # 環境変数から取得
+        'PASSWORD': os.environ.get('postgres'),  # 環境変数から取得
+        'HOST': os.environ.get('my-db-host.render.com'),  # 環境変数から取得
+        'PORT': '5432',  # PostgreSQLの標準ポート
     }
 }
 
