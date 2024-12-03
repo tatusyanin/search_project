@@ -65,12 +65,12 @@ WSGI_APPLICATION = 'search_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),  # 環境変数から取得
-        'USER': os.environ.get('DB_USER'),  # 環境変数から取得
-        'PASSWORD': os.environ.get('postgres'),  # 環境変数から取得
-        'HOST': os.environ.get('my-db-host.render.com'),  # 環境変数から取得
-        'PORT': '5432',  # PostgreSQLの標準ポート
+        'ENGINE': 'django.db.backends.postgresql',  # PostgreSQLを使用
+        'NAME': os.environ.get('DB_NAME'),          # 環境変数から取得
+        'USER': os.environ.get('DB_USER'),          # 環境変数から取得
+        'PASSWORD': os.environ.get('DB_PASSWORD'),  # 環境変数から取得
+        'HOST': os.environ.get('DB_HOST'),          # 環境変数から取得
+        'PORT': '5432',                             # PostgreSQLの標準ポート
     }
 }
 
@@ -111,7 +111,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 静的ファイルを収集するディレクトリ
-STATICFILES_DIRS =  os.path.join(BASE_DIR, 'static'),  
+STATICFILES_DIRS =  BASE_DIR / "static",  
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
