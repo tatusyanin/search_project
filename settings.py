@@ -69,7 +69,7 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME'),          # 環境変数から取得
         'USER': os.environ.get('DB_USER'),          # 環境変数から取得
         'PASSWORD': os.environ.get('DB_PASSWORD'),  # 環境変数から取得
-        'HOST': os.environ.get('DB_HOST'),          # 環境変数から取得
+        'HOST': '127.0.0.1',  # ここを変更
         'PORT': '5432',                             # PostgreSQLの標準ポート
     }
 }
