@@ -1,17 +1,17 @@
+
 from pathlib import Path
 import os
-
-# プロジェクト内でのパスをBASE_DIR / 'subdir' の形式で設定
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# 開発用の設定 - 本番環境には不適切な設定
-# 詳細はこちらを参照：https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# セキュリティ警告: 本番環境で使用する秘密鍵は必ず保護すること
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-!!yn=c&557ps!%gygads%0m*^#zu9gx)fhw2+a_b1_!f3n8(dr'
 
-# セキュリティ警告: 本番環境でDEBUGをTrueにしない
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['https://search-project-3bsw.onrender.com', 'localhost']
@@ -60,7 +60,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'search_app.wsgi.application'
 
 
-# データベース設定
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # PostgreSQLを使用
@@ -73,7 +75,9 @@ DATABASES = {
 }
 
 
-# パスワード検証設定
+# Password validation
+# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -90,7 +94,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# 国際化設定
+# Internationalization
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -100,13 +106,17 @@ USE_I18N = True
 USE_TZ = True
 
 
-# 静的ファイル (CSS, JavaScript, 画像) の設定
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 静的ファイルを収集するディレクトリ
-STATICFILES_DIRS = [BASE_DIR / "static"],  # 修正
+STATICFILES_DIRS = [BASE_DIR / "static"]  # 修正
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# デフォルトの主キーのフィールドタイプ
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
