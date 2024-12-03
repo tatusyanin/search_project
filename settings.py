@@ -66,13 +66,14 @@ WSGI_APPLICATION = 'search_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
+        'NAME': os.getenv('search_project_db'),
+        'USER': os.getenv('search_project_db_user'),
+        'PASSWORD': os.getenv('JQ4omBvXb4yVcHaU7tXwMmMGH5Q3sAKf'),
+        'HOST': os.getenv('dpg-ct7gl5t2ng1s73cf66rg-a'),
+        'PORT': os.getenv('5432'),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
