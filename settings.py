@@ -66,13 +66,14 @@ WSGI_APPLICATION = 'search_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('search_project_db'),
-        'USER': os.getenv('search_project_db_user'),
-        'PASSWORD': os.getenv('JQ4omBvXb4yVcHaU7tXwMmMGH5Q3sAKf'),
-        'HOST': os.getenv('dpg-ct7gl5t2ng1s73cf66rg-a'),
-        'PORT': os.getenv('5432'),
+        'NAME': os.getenv('DB_NAME', 'search_project_db'),  # 環境変数が無い場合のデフォルト値を設定
+        'USER': os.getenv('DB_USER', 'search_project_db_user'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'JQ4omBvXb4yVcHaU7tXwMmMGH5Q3sAKf'),
+        'HOST': os.getenv('DB_HOST', 'dpg-ct7gl5t2ng1s73cf66rg-a'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
+
 
 
 # Password validation
