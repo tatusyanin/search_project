@@ -12,12 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!!yn=c&557ps!%gygads%0m*^#zu9gx)fhw2+a_b1_!f3n8(dr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
-
-# Application definition
+ALLOWED_HOSTS = ['https://search-project-3bsw.onrender.com', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -109,6 +106,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 静的ファイルを収集するディレクトリ
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # 開発用静的ファイル
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
