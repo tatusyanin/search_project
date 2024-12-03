@@ -65,15 +65,14 @@ WSGI_APPLICATION = 'search_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # PostgreSQLを使用
-        'NAME': os.environ.get('DB_NAME'),          # 環境変数から取得
-        'USER': os.environ.get('DB_USER'),          # 環境変数から取得
-        'PASSWORD': os.environ.get('DB_PASSWORD'),  # 環境変数から取得
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),  # 環境変数から取得、デフォルト値として127.0.0.1を設定
-        'PORT': '5432',                             # PostgreSQLの標準ポート
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
