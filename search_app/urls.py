@@ -38,5 +38,5 @@ urlpatterns = [
     path('edit_favorite/<int:pk>/', views.edit_favorite, name='edit_favorite'),  # 編集ページのURL
     path('favorite/remove/<int:pk>/', views.remove_from_favorites, name='remove_from_favorites'),  # 削除処理
     path('favorite/', views.favorite_list, name='favorite_list'),
-
+    path('save-order/', views.save_order, name='save_order'),
 ]

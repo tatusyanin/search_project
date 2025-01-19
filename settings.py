@@ -63,19 +63,10 @@ WSGI_APPLICATION = 'search_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-from decouple import config
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('search_project_db_user'),
-        'PASSWORD': config('JQ4omBvXb4yVcHaU7tXwMmMGH5Q3sAKf'),
-        'HOST': config('dpg-ct7gl5t2ng1s73cf66rg-a'),
-        'PORT': config('5432'),
-    }
+    'default': env.db(),
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

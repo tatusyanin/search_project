@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    width: 400px;
+    position: relative;
+}
+
+.counter {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.loading-bar-wrapper {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    margin: 0 auto;
+    background-color: lightgray;
+    /* 静的部分の背景色 */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.loading-bar-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    /* 親要素に合わせて高さを自動設定 */
+    background-color: rgb(6, 153, 153);
+    /* 動的部分の色 */
+    width: 0%;
+    /* 初期幅を 0% に設定 */
+    border-radius: 5px;
+    transition: width 0.05s linear;
+    /* スムーズなアニメーションを追加 */
+}

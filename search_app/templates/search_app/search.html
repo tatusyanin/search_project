@@ -143,3 +143,18 @@
 </script>
 </body>
 </html>
+
+
+<!-- [Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=jo-jaku
+Group=staff
+WorkingDirectory=/Users/jo-jaku/Desktop/2年次/search_project
+ExecStart=/Users/jo-jaku/Desktop/2年次/search_project/venv/bin/gunicorn --workers 3 --bind unix:/Users/jo-jaku/Desktop/2年次/search_project/gunicorn.sock search_project.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+ -->

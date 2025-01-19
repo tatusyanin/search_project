@@ -288,3 +288,16 @@ def remove_from_favorites(request, pk):
         return redirect('favorite_list')  # 削除後にお気に入り一覧ページにリダイレクト
     return redirect('favorite_list')  # GETリクエストの場合もリストページに戻る
 
+from django.views.decorators.csrf import csrf_exempt
+import json
+@csrf_exempt
+def save_order(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        order = data.get('order', [])
+
+        # 順序を保存するロジック（例: データベースの更新）
+        # models.FavoriteItem.objects.bulk_update(order)
+
+        return JsonResponse({'status': 'success', 'order': order})
+    return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
