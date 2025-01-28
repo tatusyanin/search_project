@@ -40,6 +40,7 @@
 
 
 技術スタック
+
 Python: バックエンドロジックのために使用
 
 Django: Webフレームワークとして使用
@@ -48,9 +49,8 @@ JavaScript (JS): ドラッグ＆ドロップ機能のために使用
 
 SQLite: データベースとして使用
 
-
-
 セットアップ手順
+
 このリポジトリをクローンします:
 
     git clone https://github.com/tatusyanin/search_project
