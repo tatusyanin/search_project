@@ -60,6 +60,7 @@ def product_list(request):
     products = Product.objects.all()
     return render(request, 'product_list.html', {'products': products})
 
+
 def search_view(request):
     form = SearchForm(request.GET or None)
     results = Product.objects.all()  # クエリセットの初期化

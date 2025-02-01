@@ -17,8 +17,13 @@
     <div class="text-center mb-4">
         <a href="{% url 'product_create' %}" class="btn btn-success">追加</a>
         <a href="{% url 'favorite' %}">お気に入り商品を見る</a>
+        {% if request.user.is_authenticated %}
+        <p>ログイン中: {{ request.user.username }}</p>
         <a href="{% url 'logout' %}">ログアウト</a>
-    </div>
+    {% else %}
+        <p>ログインしていません</p>
+        <a href="{% url 'login' %}">ログイン</a>
+    {% endif %}    </div>
 
     <!-- 検索キーワード入力 -->
     <form method="GET" action="{% url 'search' %}">

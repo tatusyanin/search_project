@@ -11,6 +11,13 @@
 <body>
     <div class="container">
         <h1 class="mt-5">ようこそ、{{ user.username }}さん！</h1>
+        {% if request.user.is_authenticated %}
+    <p>ログイン中: {{ request.user.username }}</p>
+    <a href="{% url 'logout' %}">ログアウト</a>
+{% else %}
+    <p>ログインしていません</p>
+    <a href="{% url 'login' %}">ログイン</a>
+{% endif %}
         <p class="lead">このアプリでは、さまざまな商品を検索して管理できます。</p>
 
         <div class="mt-4">
