@@ -47,7 +47,7 @@ Django: Webフレームワークとして使用
 
 JavaScript (JS): ドラッグ＆ドロップ機能のために使用
 
-SQLite: データベースとして使用
+PostgresSQL: データベースとして使用
 
 セットアップ手順
 
